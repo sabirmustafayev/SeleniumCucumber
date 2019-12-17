@@ -13,6 +13,7 @@ public class LoginStep {
     @Then("user logs in as store manager")
     public void user_logs_in_as_store_manager() {
         System.out.println("Login as stroe manager");
+        //throw new RuntimeException(("Test failed for some reason"));
 
     }
 
