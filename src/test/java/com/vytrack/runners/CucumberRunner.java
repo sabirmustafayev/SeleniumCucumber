@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
         dryRun = false,
         //tags = "@negative_test or @driver"
         //tags = " ~@negative_test"  // ~ with this senario does not run
-        tags = "",
+        tags = "@store_manager",
         plugin = {"html:target/default-cucumber-reports"}
 )
 public class CucumberRunner {
