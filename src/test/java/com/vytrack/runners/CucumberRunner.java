@@ -6,16 +6,17 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src\\test\\resources\\features",
-        glue = "com.vytrack.step_definitions",
+        features = "src/test/resources/features",
+        glue = "com/vytrack/step_definitions",
         dryRun = false,
-        //tags = "@negative_test or @driver"
-        //tags = " ~@negative_test"  // ~ with this senario does not run
-        tags = "@store_manager",
-        plugin = {"html:target/default-cucumber-reports"}
+        tags = "@driver_with_data_table",
+        plugin = {"html:target/default-cucumber-reports",
+                "json:target/cucumber.json"
+        }
 )
 public class CucumberRunner {
 
 
-
 }
+
+
