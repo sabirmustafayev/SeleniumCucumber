@@ -46,3 +46,19 @@ Feature: Login
         | username | user160     |
         | password | UserUser123 |
     And user verifies that "Quick Launchpad" page subtitle is displayed
+
+
+    @login_with_role
+    Scenario: Login as driver
+      Given user is on the login page
+      Then user logs in as "driver"
+
+  @login_with_role
+  Scenario: Login as sales manager
+    Given user is on the login page
+    Then user logs in as "sales manager"
+
+  @login_with_role
+  Scenario: Login as store manager
+    Given user is on the login page
+    Then user logs in as "store manager"

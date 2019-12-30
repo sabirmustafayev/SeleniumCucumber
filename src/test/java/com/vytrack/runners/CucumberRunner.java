@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/vytrack/step_definitions",
         dryRun = false,
-        tags = "@driver_with_data_table",
+        tags = "@login_with_role",
         plugin = {"html:target/default-cucumber-reports",
                 "json:target/cucumber.json"
         }
