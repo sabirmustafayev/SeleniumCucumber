@@ -57,15 +57,16 @@ public class LoginStepDefinitions {
 
     }
 
+    //Then user enters "storemanager85" username and "wrong" password
     @Then("user enters {string} username and {string} password")
     public void user_enters_username_and_password(String string, String string2) {
-        System.out.println("Login with "+string+" username and "+string2+" password");
+        System.out.println("Login with "+string+" username and "+string2+" password.");
+        loginPage.login(string, string2);
     }
 
     @Then("user verifies that {string} message is displayed")
     public void user_verifies_that_message_is_displayed(String string) {
-        System.out.println("Verified that warning message is displayed as "+string);
-
+        System.out.println("Verified that warning message is displayed: " + string);
     }
 
     //    Then user logs in as driver with following credentials
@@ -81,5 +82,13 @@ public class LoginStepDefinitions {
     public void user_logs_in_as(String role) {
         loginPage.login(role);
     }
+
+    @Then("the page title should be {string}")
+    public void the_page_title_should_be(String title) {
+        BrowserUtils.waitForPageTitle(title);
+
+        Assert.assertEquals("Title is incorrect",title,Driver.get().getTitle());
+    }
+
 
 }
