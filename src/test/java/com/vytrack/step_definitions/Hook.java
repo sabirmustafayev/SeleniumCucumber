@@ -12,30 +12,24 @@ public class Hook {
 
     @Before
     public void setup(){
-
+        System.out.println("##############################");
         System.out.println("Test setup!");
-       Driver.get().manage().window().maximize();
+//        Driver.get().manage().window().maximize();
     }
 
     @After
     public void teardown(Scenario scenario){
-        //if test failed -- do this
-        if (scenario.isFailed()) {
-            System.out.println("Test failed");
-            byte[] screenshot = ((TakesScreenshot) Driver.get()).getScreenshotAs(OutputType.BYTES);
+        //if test failed - do this
+        if(scenario.isFailed()){
+            System.out.println("Test failed!");
+            byte[] screenshot = ((TakesScreenshot)Driver.get()).getScreenshotAs(OutputType.BYTES);
             scenario.embed(screenshot, "image/png");
-        }
-        else {
+        }else{
             System.out.println("Cleanup!");
-            System.out.println("Test completed");
+            System.out.println("Test completed!");
         }
-        //after every test we r gonna close browser
+        System.out.println("##############################");
+        //after every test, we gonna close browser
         Driver.close();
     }
-
-//    @After("@sales_manager")
-//    public void tearDownSalesManager(){
-//        System.out.println("This is coming from after scenario for sales managers\n");
-//
-//    }
 }
